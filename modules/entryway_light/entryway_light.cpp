@@ -49,6 +49,6 @@ void entryLightUpdate()
     if( lightSensorUpdate() < LS_DARKNESS_VALUE ) {
         entryLight = ON;
     } else {
-        strobeLight = OFF;
+        entryLight = OFF;
     }
 }

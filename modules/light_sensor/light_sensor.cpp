@@ -22,7 +22,7 @@ AnalogIn ls(A2);
 
 //=====[Declaration and initialization of private global variables]============
 
-float lsReadingsArray[LS_NUMBER_OF_AVG_SAMPLES];
+float lsReadingsArray[LS_NUMBER_OF_SAMPLES];
 
 //=====[Declarations (prototypes) of private functions]========================
 
@@ -32,7 +32,7 @@ void lightSensorInit()
 {
     int i;
     
-    for( i=0; i<LS_NUMBER_OF_AVG_SAMPLES ; i++ ) {
+    for( i=0; i<LS_NUMBER_OF_SAMPLES ; i++ ) {
         lsReadingsArray[i] = 0;
     }
 }
@@ -47,14 +47,14 @@ float lightSensorUpdate()
 
     lsReadingsArray[lsSampleIndex] = ls.read();
        lsSampleIndex++;
-    if ( lsSampleIndex >= LS_NUMBER_OF_AVG_SAMPLES) {
+    if ( lsSampleIndex >= LS_NUMBER_OF_SAMPLES) {
         lsSampleIndex = 0;
     }
     
    lsReadingsSum = 0.0;
-    for (i = 0; i < LS_NUMBER_OF_AVG_SAMPLES; i++) {
+    for (i = 0; i < LS_NUMBER_OF_SAMPLES; i++) {
         lsReadingsSum = lsReadingsSum + lsReadingsArray[i];
     }
-    lsReadingsAverage = lsReadingsSum / LS_NUMBER_OF_AVG_SAMPLES;
+    lsReadingsAverage = lsReadingsSum / LS_NUMBER_OF_SAMPLES;
     return lsReadingsAverage;
 }
