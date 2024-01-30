@@ -10,6 +10,7 @@
 #include "smart_home_system.h"
 #include "date_and_time.h"
 #include "temperature_sensor.h"
+#include "light_sensor.h"
 #include "gas_sensor.h"
 #include "matrix_keypad.h"
 
